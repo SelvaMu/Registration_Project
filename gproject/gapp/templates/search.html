@@ -1,0 +1,370 @@
+{% load static%}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Panel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="{%static '/media/govt.ico'%}" type="image/ico" sizes="16x16">
+  <style>
+    body{
+	margin:0;
+	padding:20px;
+	
+  text-decoration: none;
+}
+
+*{
+  text-decoration: none;
+  font-family: sans-serif;
+  list-style: none;
+	box-sizing: border-box;
+}
+
+
+
+.nav-bar{
+    
+  display: flex;
+  justify-content: space-around;
+  background-color: #ddd;
+  
+  
+}
+.nav-bar li,a{
+  padding: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  color: #460b34;
+}
+.nav-bar li,a:hover{
+  color: #cac0c6;
+}
+
+.table{
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.table td,.table th{
+  padding:12px 15px;
+  border:1px solid #ddd;
+  text-align: left;
+  font-size:16px;
+}
+
+
+.table th{
+	background-color: rgb(64, 6, 78);
+	color:#ffffff;
+}
+
+.table tbody tr:nth-child(even){
+	background-color: #dfcee0;
+}
+
+h1{
+    text-align: center;
+    color: #460b34;
+    background-color: #86657c;
+}
+
+
+
+
+#search{
+    margin-left: 1%;
+    padding: 7px 30px;
+    background-color: #86657c;
+    border-radius: 5px;
+    border: 2px solid gray;
+}
+#searchi{
+    margin-left: 25%;
+    width: 20%;
+    margin-bottom: 2%;
+    width: 40%;
+    padding: 8px;
+    border-radius: 5px;
+    border: solid 2px gray;
+}
+#search:hover{
+    background-color: #460b34;
+    color: white;
+    cursor: pointer;
+}
+
+
+.reload{
+    margin-left: 30%;
+    margin-top: 2%;
+    width: 40%;
+    padding: 0.75% 15%;
+    background-color: #86657c;
+    color: #ffffff;
+    font-weight: bold;
+    border: 2px solid rgb(150, 45, 115);
+    border-radius: 5px;
+    outline: gray;
+    text-decoration: none;
+    
+}
+.reload:hover{
+    background-color: #460b34;
+    cursor: pointer;
+}
+
+
+@media(max-width: 500px){
+	.table thead{
+		display: none;
+	}
+
+	.table, .table tbody, .table tr, .table td{
+		display: block;
+		width: 100%;
+	}
+	.table tr{
+		margin-bottom:15px;
+	}
+	.table td{
+		text-align: right;
+		padding-left: 50%;
+		text-align: right;
+		position: relative;
+	}
+	.table td::before{
+		content: attr(data-label);
+		position: absolute;
+		left:0;
+		width: 50%;
+		padding-left:15px;
+		font-size:15px;
+		font-weight: bold;
+		text-align: left;
+	}
+  .nav-bar{
+        
+    display: block;
+    background: none;
+
+}
+.nav-bar li ,a{
+font-size: 8px;
+color: rgb(66, 9, 73);
+}
+  
+}
+
+.divition{
+  text-align: center;
+  font-weight: bold;
+  color: red;
+}
+
+
+
+
+
+
+
+
+  </style>
+
+</head>
+<body>
+    <header>
+        <ul class="nav-bar">
+          <li>
+            <a href="/a97846l65ld65a9695t48694a6454">Total Data</a>
+          </li>
+          <li>
+            <a href="/pr56465es52351ent55146h512ere">Present Here</a>
+          </li>
+          <li>
+            <a href="/registration">Registration</a>
+          </li>
+          <li>
+            <a href="/e64m531pl634oyer56sregi64ster">Employers Registration</a>
+          </li>
+          <li>
+            <a href="/em5153l53213ye251r65alldata63">Employers Data</a>
+          </li>
+          <li>
+            <a href="/em8plo65ye56r_54pa652156nel51">Employers Panel</a>
+          </li>
+          <li>
+            <a href="/em845pl5164_se524ct203ed_6546">Selected List</a>
+          </li>
+          <li>
+            <a href="/da536494tar3213e963584s6e654t">Data Reset</a>
+          </li>
+          <li>
+            <a href="/c84654sv215364cnv635164e536r8">CSV File Convert</a>
+          </li>
+          <li>
+            <a href="/l5364og65o63587u63587636t6376">Logout</a>
+          </li>
+        </ul>
+    </header>
+
+
+
+    
+    <h1>Admin Panel</h1>
+    
+
+    <form action="/s98ea7r6c6651251363h516556465" method="POST">
+        {%csrf_token%}
+    <input type="search" id="searchi" name="searchi" placeholder="Search here...." required><span><input type="submit" value="search" id="search"></span>
+   
+    <div class="divition">
+      {%for message in messages%}
+      <p>{{message}}</p>
+      {%endfor%}
+  </div>
+
+    {%if searched%}
+    {%for i in det%}
+    <table class="table">
+     <thead>
+     	<tr>
+     	 <th>Data</th>
+     	 <th>Details</th>
+     	</tr>
+     </thead>
+     <tbody>
+     	  <tr>
+     	  	  <td data-label="S.No">ID</td>
+     	  	  <td data-label="Name">{{i.Employee_ID}}</td>
+     	  </tr>
+
+     	  <tr>
+     	  	  <td data-label="S.No">NAME</td>
+     	  	  <td data-label="Name">{{i.Student_Name}}</td>
+     	  </tr>
+
+     	  <tr>
+     	  	  <td data-label="S.No">E-MAIL ID</td>
+     	  	  <td data-label="Name">{{i.Email_ID}}</td>
+     	  </tr>
+
+     	  <tr>
+     	  	  <td data-label="S.No">MOBILE NUMBER</td>
+     	  	  <td data-label="Name">{{i.Mobile_Number}}</td>
+     	  </tr>
+
+           <tr>
+             <td data-label="S.No">Date Of Birth</td>
+             <td data-label="Name">{{i.Date_Of_Birth}}</td>
+           </tr>
+
+          <tr>
+            <td data-label="S.No">District</td>
+            <td data-label="Name">{{i.District}}</td>
+          </tr>
+
+         
+
+         <tr>
+           <td data-label="S.No">Private Job Portal-Already Applied?</td>
+           <td data-label="Name">{{i.Private_Job_Portal}}</td>
+         </tr>
+
+         <tr>
+          <td data-label="S.No">Educational qualification</td>
+          <td data-label="Name">{{i.Highest_Qualification}}</td>
+        </tr>
+        
+        <tr>
+          <td data-label="S.No">Year of Passing</td>
+          <td data-label="Name">{{i.Qualified_Year}}</td>
+        </tr>
+        <tr>
+          <td data-label="S.No">Percentage</td>
+          <td data-label="Name">{{i.Percentage}}</td>
+        </tr>
+     </tbody>
+   </table>
+
+   
+   <br>
+   {%endfor%}
+
+
+
+  
+
+   {%else%}
+   <table class="table">
+    <thead>
+      <tr>
+       <th>Data</th>
+       <th>Details</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td data-label="S.No">ID</td>
+            <td data-label="Name"></td>
+        </tr>
+
+        <tr>
+            <td data-label="S.No">NAME</td>
+            <td data-label="Name"></td>
+        </tr>
+
+        <tr>
+            <td data-label="S.No">E-MAIL ID</td>
+            <td data-label="Name"></td>
+        </tr>
+
+        <tr>
+            <td data-label="S.No">MOBILE NUMBER</td>
+            <td data-label="Name"></td>
+        </tr>
+
+          <tr>
+            <td data-label="S.No">Date Of Birth</td>
+            <td data-label="Name"></td>
+          </tr>
+
+         <tr>
+           <td data-label="S.No">District</td>
+           <td data-label="Name"></td>
+         </tr>
+
+
+        <tr>
+          <td data-label="S.No">Private Job Portal-Already Applied?</td>
+          <td data-label="Name"></td>
+        </tr>
+        
+        <tr>
+          <td data-label="S.No">Educational qualification</td>
+          <td data-label="Name"></td>
+        </tr>
+        
+        <tr>
+          <td data-label="S.No">Year of Passing</td>
+          <td data-label="Name"></td>
+        </tr>
+        
+        <tr>
+          <td data-label="S.No">Percentage</td>
+          <td data-label="Name"></td>
+        </tr>
+        
+    </tbody>
+  </table>
+  
+  {%endif%}
+  <br>
+   
+   <a href="/s98ea7r6c6651251363h516556465" class="reload">Reload</a>
+</form>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="{%static '/media/govt.ico'%}" type="image/ico" sizes="16x16">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Data Delete</title>
+    <style>
+        *{
+            text-decoration: none;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            
+        }
+        body{
+            background-image: linear-gradient(rgb(254, 232, 232),rgb(217, 217, 255));
+            background-repeat:no-repeat;
+        }
+        h1{
+            text-align: center;
+        }
+        div{
+            color: red;
+            text-align: center;
+        }
+        
+        .sub{
+            margin-top: 20px;
+            margin-left:45%;
+            padding: 8px 67px;
+            border: 2px solid black;
+            border-radius: 10px;
+            color: black;
+            background-image: linear-gradient(rgb(252, 237, 239),rgb(168, 168, 168));
+        }
+        a{
+            margin-top: 10px;
+            margin-left:45%;
+            padding: 5px 85px;
+            border: 2px solid black;
+            border-radius: 10px;
+            color: black;
+            background-image: linear-gradient(rgb(252, 237, 239),rgb(168, 168, 168));
+        }
+        input:hover{
+            cursor: pointer;
+            opacity: 0.7;
+        }
+         a:hover{
+            cursor: pointer;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <h1>All Data Deleted</h1>
+    <form action="/de654l65384et65eall321da63ta6" method="POST">
+        {%csrf_token%}
+        <div class="divition">
+            {%for message in messages%}
+            <p>{{message}}</p>
+            {%endfor%}
+        </div>
+
+        <input type="submit" class="sub" value="Delete Data"> <br><br>
+        <a href="/da536494tar3213e963584s6e654t">Back</a>
+    </form>
+    <br>
+<br><br><br><br><br><br><br><br><br><br>
+
+<br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br>
+</body>
+</html>

@@ -1,0 +1,173 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{%static '/media/govt.ico'%}" type="image/ico" sizes="16x16">
+    <title>Employer All Data</title>
+    <style>
+      
+        h1{
+          text-align: center;
+          color: #460b34;
+          background-color: #86657c;
+      }
+        #search{
+          margin-left: 1%;
+          padding: 7px 30px;
+          background-color: #86657c;
+          border-radius: 5px;
+          border: 2px solid gray;
+      }
+      #searchi{
+          margin-left: 25%;
+          width: 20%;
+          margin-bottom: 2%;
+          width: 40%;
+          padding: 8px;
+          border-radius: 5px;
+          border: solid 2px gray;
+      }
+      #search:hover{
+          background-color: #460b34;
+          color: white;
+          cursor: pointer;
+      }
+  
+      a{
+        margin-left: 5%;
+        text-decoration: none;
+        color: black;
+        padding: 5px 30px;
+        background-color: #ddd;
+        border: 2px solid gray;
+        border-radius: 10px;
+  
+      }
+      
+      </style>
+</head>
+<body>
+    <h1>Employer All Data</h1><br>
+  <form action="/em5153l53213ye251r65alldata63" method="POST">
+    {%csrf_token%}
+<input type="search" id="searchi" name="searchi" placeholder="Search here...." required><span><input type="submit" value="search" id="search"></span>
+            <h4>Total Employer Data : {{t}}</h4>
+            
+
+            <div class="divition">
+              {%for message in messages%}
+              <p>{{message}}</p>
+              {%endfor%}
+          </div>
+          
+
+            <br><br>
+        
+       
+<hr><hr>
+{%if searched%}
+{%for i in det%}
+<table class="table">
+  <thead>
+      <tr>
+       <th>Data</th>
+       <th>Details</th>
+      </tr>
+  </thead>
+  <tbody>
+        <tr>
+              <td data-label="S.No">ID</td>
+              <td data-label="Name">{{i.Employers_ID}}</td>
+        </tr>
+
+        <tr>
+              <td data-label="S.No">NAME</td>
+              <td data-label="Name">{{i.Employer_Name}}</td>
+        </tr>
+
+        <tr>
+              <td data-label="S.No">E-MAIL ID</td>
+              <td data-label="Name">{{i.Email_ID}}</td>
+        </tr>
+
+        <tr>
+              <td data-label="S.No">MOBILE NUMBER</td>
+              <td data-label="Name">{{i.Employer_Number}}</td>
+        </tr>
+
+        <tr>
+          <td data-label="S.No">COMPANY NAME</td>
+          <td data-label="Name">{{i.Employer_Company_Name}}</td>
+        </tr>
+
+       <tr>
+         <td data-label="S.No">REGISTERED DATE</td>
+         <td data-label="Name">{{i.Registered_Date}}</td>
+       </tr>
+  </tbody>
+</table>
+{%endfor%}
+
+{%else%}
+{% for i in all %}
+<table class="table">
+  <thead>
+      <tr>
+       <th>Data</th>
+       <th>Details</th>
+      </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td data-label="S.No">ID</td>
+        <td data-label="Name">{{i.Employers_ID}}</td>
+  </tr>
+
+  <tr>
+        <td data-label="S.No">NAME</td>
+        <td data-label="Name">{{i.Employer_Name}}</td>
+  </tr>
+
+  <tr>
+        <td data-label="S.No">E-MAIL ID</td>
+        <td data-label="Name">{{i.Email_ID}}</td>
+  </tr>
+
+  <tr>
+        <td data-label="S.No">MOBILE NUMBER</td>
+        <td data-label="Name">{{i.Employer_Number}}</td>
+  </tr>
+
+  <tr>
+    <td data-label="S.No">COMPANY NAME</td>
+    <td data-label="Name">{{i.Employer_Company_Name}}</td>
+  </tr>
+
+ <tr>
+   <td data-label="S.No">REGISTERED DATE</td>
+   <td data-label="Name">{{i.Registered_Date}}</td>
+ </tr>
+  </tbody>
+</table>
+    
+       
+       <br>
+       <hr>
+
+       
+       {%endfor%}
+     
+      
+      
+       {%endif%}
+      <br>
+       
+       
+    </form>
+
+
+</body>
+</html>

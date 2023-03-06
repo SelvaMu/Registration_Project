@@ -1,0 +1,259 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{%static '/media/govt.ico'%}" type="image/ico" sizes="16x16">
+    <title>Employer Selection Table</title>
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+        body{
+            margin:0;
+            padding:20px;
+            font-family: sans-serif;
+          text-decoration: none;
+        }
+        
+        *{
+            box-sizing: border-box;
+          text-decoration: none;
+          list-style: none;
+        }
+        
+        .table{
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .table td,.table th{
+          padding:12px 15px;
+          border:1px solid #ddd;
+          text-align: left;
+          font-size:16px;
+        }
+        
+        
+        .table th{
+            background-color: rgb(64, 6, 78);
+            color:#ffffff;
+        }
+        
+        .table tbody tr:nth-child(even){
+            background-color: #dfcee0;
+        }
+        
+        h1{
+            text-align: center;
+            color: #460b34;
+            background-color: #86657c;
+        }
+        #search{
+            margin-left: 1%;
+            padding: 7px 30px;
+            background-color: #86657c;
+            border-radius: 5px;
+            border: 2px solid gray;
+        }
+        #searchi{
+            margin-left: 25%;
+            width: 20%;
+            margin-bottom: 2%;
+            width: 40%;
+            padding: 8px;
+            border-radius: 5px;
+            border: solid 2px gray;
+        }
+        #search:hover{
+            background-color: #460b34;
+            color: white;
+            cursor: pointer;
+        }
+
+
+        .input-box{
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 15px;
+            width: calc(100% / 2 - 20px);
+          }
+
+          form .input-box span.details{
+            display: block;
+            font-weight: 500;
+            margin-bottom: 5px;
+          }
+
+          .input-box input{
+            height: 45px;
+          width: 100%;
+          outline: none;
+          font-size: 16px;
+          border-radius: 5px;
+          padding-left: 15px;
+          border: 1px solid #ccc;
+          border-bottom-width: 2px;
+          transition: all 0.3s ease;
+          }
+
+          .input-box input:focus,
+          .input-box input:valid
+          {
+            border-color: #9b59b6;
+          }
+
+          .input-box
+          {
+            margin-bottom: 15px;
+            width: 100%;
+          }
+
+
+        .gender-title{
+            font-size: 20px;
+            font-weight: 500;
+           }
+
+           form .category{
+            display: flex;
+            width: 80%;
+            margin: 14px 0 ;
+            justify-content: space-around;
+          }
+          form .category label{
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+          }
+          form .category label .dot{
+           height: 18px;
+           width: 18px;
+           border-radius: 50%;
+           margin-right: 10px;
+           background: #d9d9d9;
+           border: 5px solid transparent;
+           transition: all 0.3s ease;
+         }
+
+
+         #dot-4:checked ~ .category label .four,
+         #dot-5:checked ~ .category label .five{
+            background: #9b59b6;
+           border-color: #d9d9d9;
+         }
+        
+         form input[type="radio"]{
+            display: none;
+          }
+
+
+
+           #submit{
+            margin-left: 30%;
+            margin-top: 2%;
+            width: 40%;
+            padding: 12px 10px;
+            background-color: #86657c;
+            color: #ffffff;
+            font-weight: bold;
+            border: 2px solid rgb(150, 45, 115);
+            border-radius: 5px;
+            outline: gray;
+        }
+        #submit:hover{
+            background-color: #460b34;
+            cursor: pointer;
+        }
+
+        .reload{
+          margin-left: 30%;
+          margin-top: 2%;
+          width: 40%;
+          padding: 0.75% 18%;
+          background-color: #86657c;
+          color: #ffffff;
+          font-weight: bold;
+          border: 2px solid rgb(150, 45, 115);
+          border-radius: 5px;
+          outline: gray;
+          text-decoration: none;
+          
+        }
+        .reload:hover{
+          background-color: #460b34;
+          cursor: pointer;
+        }
+        
+        
+        .divition{
+          text-align: center;
+          font-weight: bold;
+          color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Employers Panel</h1>
+    <form action="/se6541lecti625365_p6531anel31" method="POST">
+        {%csrf_token%}
+
+
+        <div class="divition">
+          {%for message in messages%}
+          <p>{{message}}</p>
+          {%endfor%}
+      </div>
+
+      <div class="input-box">
+        <span class="details">Employee ID :</span>
+        <input type="text" name="searchi" placeholder="TET0000" >
+      </div>
+   
+   
+    <br>
+
+    <div class="input-box">
+     <span class="details">Employer ID :</span>
+     <input type="text" name="employer_id" placeholder="EMP0000" >
+   </div>
+ 
+ <br>
+ 
+    <div class="work-details">
+     <input type="radio" name="employee" id="dot-4" value="Select" required>
+     <input type="radio" name="employee" id="dot-5" value="Not Selected" required>
+     
+     <span class="gender-title">Employer Selection : </span>
+     <div class="category">
+       <label for="dot-4">
+       <span class="dot four"></span>
+       <span class="gender" >Selected</span>
+     </label>
+     <label for="dot-5">
+       <span class="dot five"></span>
+       <span class="gender" >Not Selected</span>
+     </label>
+     </div>
+   </div>
+ 
+ 
+   <div class="button">
+     <button type="submit" id="submit" name="myButton">Submit</button>
+           <!-- <input type="submit" id="submit" value="Register"> -->
+         </div>
+    
+    <br>
+   
+
+  <br>
+   
+   <a href="/se6541lecti625365_p6531anel31" class="reload">Reload</a>
+   <br><br><br><br>
+   <a href="/em8plo65ye56r_54pa652156nel51" class="reload">Back...</a>
+</form>
+    
+</body>
+</html>

@@ -1,0 +1,355 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '/css/style.css'%}">
+    <link rel="icon" href="{%static '/media/govt.ico'%}" type="image/ico" sizes="16x16">
+    <title>Employer Registeration</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+        *{
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          font-family: 'Poppins',sans-serif;
+          scroll-behavior: smooth;
+        }
+
+        .head{
+            display: flex;
+            justify-content: space-around;
+            
+      }
+      #img{
+          width: 10%;
+          height: 10%;
+          padding: 1%;
+          margin-left: 150px;
+      }
+      #h1{
+          margin-top: 5%;
+          font-size: 20px;
+          font-weight: 800;
+          text-align: center;
+          margin-right: 75px;
+      }
+      #h2{
+          font-size: 20px;
+          margin-right: 100px;
+
+      }
+          .bio{
+            height: fit-content;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            background-image: linear-gradient(to bottom right,rgb(99, 12, 65),rgb(17, 119, 145),rgb(218, 16, 93),rgb(128, 62, 60));
+          }
+
+
+          .container{
+            max-width: 900px;
+            width: 100%;
+            background-color: #fff;
+            padding: 25px 30px;
+            border-radius: 5px;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+          }
+          .container .title{
+            font-size: 25px;
+            font-weight: 500;
+            position: relative;
+          }
+          .container .title::before{
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 3px;
+            width: 30px;
+            border-radius: 5px;
+            background: linear-gradient(135deg, #71b7e6, #9b59b6);
+          }
+          .content form .user-details{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 20px 0 12px 0;
+          }
+          form .user-details .input-box{
+            margin-bottom: 15px;
+            width: calc(100% / 2 - 20px);
+          }
+          form .input-box span.details{
+            display: block;
+            font-weight: 500;
+            margin-bottom: 5px;
+          }
+
+          .user-details .input-box input,
+        .edu input{
+            height: 45px;
+            width: 100%;
+            outline: none;
+            font-size: 16px;
+            border-radius: 5px;
+            padding-left: 15px;
+            border: 1px solid #ccc;
+            border-bottom-width: 2px;
+            transition: all 0.3s ease;
+          }
+
+          .user-details .input-box input:focus,
+        .user-details .input-box input:valid{
+          border-color: #9b59b6;
+        }
+
+        form .category{
+            display: flex;
+            width: 80%;
+            margin: 14px 0 ;
+            justify-content: space-around;
+          }
+          form .category label{
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+          }
+          form .category label .dot{
+           height: 18px;
+           width: 18px;
+           border-radius: 50%;
+           margin-right: 10px;
+           background: #d9d9d9;
+           border: 5px solid transparent;
+           transition: all 0.3s ease;
+         }
+          #dot-1:checked ~ .category label .one,
+          #dot-2:checked ~ .category label .two,
+          #dot-3:checked ~ .category label .three,
+          #dot-4:checked ~ .category label .four,
+          #dot-5:checked ~ .category label .five,
+          #dot-6:checked ~ .category label .six,
+          #dot-7:checked ~ .category label .seven{
+            background: #9b59b6;
+            border-color: #d9d9d9;
+          }
+          form input[type="radio"]{
+            display: none;
+          }
+          form .button{
+            height: 45px;
+            margin: 35px 0;
+          }
+          form .button button{
+            height: 100%;
+            width: 100%;
+            border-radius: 5px;
+            border: none;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #71b7e6, #9b59b6);
+          }
+          form .button button:hover{
+           /* transform: scale(0.99); */
+           background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+           }
+ 
+           form .button{
+             height: 45px;
+             margin: 35px 0;
+           }
+           form .button input{
+             height: 100%;
+             width: 100%;
+             border-radius: 5px;
+             border: none;
+             color: #fff;
+             font-size: 18px;
+             font-weight: 500;
+             letter-spacing: 1px;
+             cursor: pointer;
+             transition: all 0.3s ease;
+             background: linear-gradient(135deg, #71b7e6, #9b59b6);
+           }
+           form .button input:hover{
+            /* transform: scale(0.99); */
+            background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+            }
+ 
+            
+ 
+           .user-details{
+             position: static;
+           }
+
+
+           @media(max-width: 584px){
+
+            #img{
+              width: 10%;
+              height: 10%;
+              padding: 1%;
+              margin-left: 20%;
+              margin-top: 1%;
+          }
+          #h1{
+              margin-top: 2%;
+              font-size: 40%;
+              font-weight: 800;
+              text-align: center;
+              width: max-content;
+              margin-left: 15%;
+          }
+          #h2{
+              font-size: 40%;
+              width: max-content;
+          } 
+  
+           .container{
+            max-width: 100%;
+            max-height: fit-content;
+            overflow: scroll;
+          }
+          
+          form .user-details .input-box{
+              margin-bottom: 15px;
+              width: 100%;
+            }
+            form .category{
+              width: 100%;
+            }
+            .content form .user-details{
+              max-height: 300px;
+              overflow: visible;
+              }
+          .gender-details{
+              margin-top: 450px;
+          }
+            .user-details::-webkit-scrollbar{
+              width: 5px;
+            }
+            }
+            @media(max-width: 459px){
+            .container .content .category{
+              flex-direction: column;
+            }
+          }
+          .edu{
+            padding: 5%;
+          }
+          legend{
+            margin-left: 15%;
+            color: #0a3f26;
+            font-weight: bold;
+          }
+          fieldset{
+            border-radius: 5px;
+          }
+  
+          .divition{
+            text-align: center;
+            font-weight: bold;
+            color: red;
+            
+          }
+
+          .button1 {
+            position: relative;
+            padding: 8px 16px;
+            background: #009579;
+            border: none;
+            outline: none;
+            border-radius: 2px;
+            cursor: pointer;
+          }
+          
+          .button1:active {
+            background: #007a63;
+          }
+          
+    </style>
+    
+</head>
+<body>
+
+    <div class="head">
+        <img src="{%static '/media/logo.png'%}" alt="Tamilnadu-Government-logo" id="img" >
+        <div class="he">
+            <h2 id="h1">தனியார்துறை வேலைவாய்ப்பு முகாம்</h2>
+            <h2 id="h2">மாவட்ட வேலைவாய்ப்பு மற்றும் தொழில்நெறி வழிகாட்டும் மையம் , தென்காசி</h2>
+           </div>
+      </div>
+    <div class="bio">
+        <div class="container">
+          <div class="title">வேலைவாய்ப்பு முகாம்</div>
+          <div class="content">
+            <form action="/e64m531pl634oyer56sregi64ster" method="POST" id="form" onsubmit="return checkForm(this);">
+                {%csrf_token%}
+
+
+                <div class="divition">
+                  <br>
+                  {%for message in messages%}
+                  <p>{{message}}</p>
+                  {%endfor%}
+              </div>
+
+              <div class="user-details">
+                <div class="input-box">
+                  <span class="details">Name :</span>
+                  <input type="text" name="name" placeholder="Eg : User Name.A" required>
+                </div>
+                
+                <div class="input-box">
+                  <span class="details">E-mail ID : </span>
+                  <input type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="Eg : user@gmail.com" required>
+                </div>
+                <div class="input-box">
+                  <span class="details">Mobile No :</span>
+                  <input type="text" name="number" pattern="[0-9]{10}" placeholder="Eg : 9876543210" required>
+                </div>
+                <div class="input-box">
+                  <span class="details">Company Name :</span>
+                  <input type="text" name="companyname" placeholder="Company Name" required>
+                </div>
+                
+                
+        <div class="button">
+          <button type="submit" class="button1" name="myButton"><span class="button__text">Register</span></button>
+                <!-- <input type="submit" id="submit" value="Register"> -->
+              </div>
+              <div class="button">
+                <input type="reset" value="Reset">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        
+        var checkForm = function(form) { 
+          /* Submit button was clicked */
+          //
+          // check form input values
+          //
+          form.myButton.disabled = true;
+          
+          return true;
+        };
+      </script>
+
+
+    
+</body>
+</html>

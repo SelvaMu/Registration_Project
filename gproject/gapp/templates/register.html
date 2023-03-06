@@ -1,0 +1,627 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '/css/style.css'%}">
+    
+    
+
+    <link rel="icon" href="{%static '/media/govt.ico'%}" type="image/ico" sizes="16x16">
+    <title>Registration</title>
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+        *{
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          font-family: 'Poppins',sans-serif;
+          scroll-behavior: smooth;
+        }
+        .head{
+          display: flex;
+          justify-content: space-around;
+          
+    }
+    #img{
+        width: 10%;
+        height: 10%;
+        padding: 1%;
+        margin-left: 150px;
+    }
+    #h1{
+        margin-top: 5%;
+        font-size: 20px;
+        font-weight: 800;
+        text-align: center;
+        margin-right: 75px;
+    }
+    #h2{
+        font-size: 20px;
+        margin-right: 100px;
+    }
+        .bio{
+          height: fit-content;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 10px;
+          background-image: linear-gradient(to bottom right,rgb(99, 12, 65),rgb(17, 119, 145),rgb(218, 16, 93),rgb(128, 62, 60));
+        }
+        .container{
+          max-width: 900px;
+          width: 100%;
+          background-color: #fff;
+          padding: 25px 30px;
+          border-radius: 5px;
+          box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+        }
+        .container .title{
+          font-size: 25px;
+          font-weight: 500;
+          position: relative;
+        }
+        .container .title::before{
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          height: 3px;
+          width: 30px;
+          border-radius: 5px;
+          background: linear-gradient(135deg, #71b7e6, #9b59b6);
+        }
+        .content form .user-details{
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          margin: 20px 0 12px 0;
+        }
+        form .user-details .input-box{
+          margin-bottom: 15px;
+          width: calc(100% / 2 - 20px);
+        }
+        form .input-box span.details{
+          display: block;
+          font-weight: 500;
+          margin-bottom: 5px;
+        }
+        .user-details .input-box input,
+        .edu input,
+        .user-details .input-box select,
+        .edu select,
+        .d3 .dot-6 select,
+        .edu select{
+          height: 45px;
+          width: 100%;
+          outline: none;
+          font-size: 16px;
+          border-radius: 5px;
+          padding-left: 15px;
+          border: 1px solid #ccc;
+          border-bottom-width: 2px;
+          transition: all 0.3s ease;
+        }
+        .user-details .input-box input:focus,
+        .user-details .input-box input:valid{
+          border-color: #9b59b6;
+        }
+         form .gender-details .gender-title{
+          font-size: 20px;
+          font-weight: 500;
+         }
+         form .category{
+           display: flex;
+           width: 80%;
+           margin: 14px 0 ;
+           justify-content: space-around;
+         }
+         form .category label{
+           display: flex;
+           align-items: center;
+           cursor: pointer;
+         }
+         form .category label .dot{
+          height: 18px;
+          width: 18px;
+          border-radius: 50%;
+          margin-right: 10px;
+          background: #d9d9d9;
+          border: 5px solid transparent;
+          transition: all 0.3s ease;
+        }
+         #dot-1:checked ~ .category label .one,
+         #dot-2:checked ~ .category label .two,
+         #dot-3:checked ~ .category label .three,
+         #dot-4:checked ~ .category label .four,
+         #dot-5:checked ~ .category label .five,
+         #dot-6:checked ~ .category label .six,
+         #dot-7:checked ~ .category label .seven{
+           background: #9b59b6;
+           border-color: #d9d9d9;
+         }
+         form input[type="radio"]{
+           display: none;
+         }
+         form .button{
+           height: 45px;
+           margin: 35px 0
+         }
+         form .button button{
+           height: 100%;
+           width: 100%;
+           border-radius: 5px;
+           border: none;
+           color: #fff;
+           font-size: 18px;
+           font-weight: 500;
+           letter-spacing: 1px;
+           cursor: pointer;
+           transition: all 0.3s ease;
+           background: linear-gradient(135deg, #71b7e6, #9b59b6);
+         }
+         form .button button:hover{
+          /* transform: scale(0.99); */
+          background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+          }
+
+          form .button{
+            height: 45px;
+            margin: 35px 0
+          }
+          form .button input{
+            height: 100%;
+            width: 100%;
+            border-radius: 5px;
+            border: none;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #71b7e6, #9b59b6);
+          }
+          form .button input:hover{
+           /* transform: scale(0.99); */
+           background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+           }
+
+           
+
+          .user-details{
+            position: static;
+          }
+        
+          
+         @media(max-width: 584px){
+
+          #img{
+            width: 10%;
+            height: 10%;
+            padding: 1%;
+            margin-left: 20%;
+            margin-top: 1%;
+        }
+        #h1{
+            margin-top: 2%;
+            font-size: 40%;
+            font-weight: 800;
+            text-align: center;
+            width: max-content;
+            margin-left: 15%;
+        }
+        #h2{
+            font-size: 40%;
+            width: max-content;
+        } 
+
+         .container{
+          max-width: 100%;
+          max-height: fit-content;
+          overflow: scroll;
+        }
+        
+        form .user-details .input-box{
+            margin-bottom: 15px;
+            width: 100%;
+          }
+          form .category{
+            width: 100%;
+          }
+          .content form .user-details{
+            max-height: 300px;
+            overflow: visible;
+            }
+        .gender-details{
+            margin-top: 450px;
+        }
+          .user-details::-webkit-scrollbar{
+            width: 5px;
+          }
+          }
+          @media(max-width: 459px){
+          .container .content .category{
+            flex-direction: column;
+          }
+        }
+        .edu{
+          padding: 5%;
+        }
+        legend{
+          margin-left: 15%;
+          color: #0a3f26;
+          font-weight: bold;
+        }
+        fieldset{
+          border-radius: 5px;
+        }
+
+        .divition{
+          text-align: center;
+          font-weight: bold;
+          color: red;
+          
+        }
+        
+
+        .button1 {
+          position: relative;
+          padding: 8px 16px;
+          background: #009579;
+          border: none;
+          outline: none;
+          border-radius: 2px;
+          cursor: pointer;
+        }
+        
+        .button1:active {
+          background: #007a63;
+        }
+        
+        .button__text {
+          
+          color: #ffffff;
+          transition: all 0.2s;
+        }
+        
+        .button--loading .button__text {
+          visibility: hidden;
+          opacity: 0;
+        }
+        
+        .button--loading::after {
+          content: "";
+          position: absolute;
+          width: 16px;
+          height: 16px;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          margin: auto;
+          border: 4px solid transparent;
+          border-top-color: #ffffff;
+          border-radius: 50%;
+          animation: button-loading-spinner 1s ease infinite;
+        }
+        
+        @keyframes button-loading-spinner {
+          from {
+            transform: rotate(0turn);
+          }
+        
+          to {
+            transform: rotate(1turn);
+          }
+        }
+
+       
+
+        </style>
+</head>
+<body>
+    
+    <div class="head">
+        <img src="{%static '/media/logo.png'%}" alt="Tamilnadu-Government-logo" id="img" >
+        <div class="he">
+        <h2 id="h1">தனியார்துறை வேலைவாய்ப்பு முகாம்</h2>
+        <h2 id="h2">மாவட்ட வேலைவாய்ப்பு மற்றும் தொழில்நெறி வழிகாட்டும் மையம் , தென்காசி</h2>
+       </div>
+      </div>
+    <div class="bio">
+        <div class="container">
+          <div class="title">வேலைவாய்ப்பு முகாம்</div>
+          <div class="content">
+            <form action="/registration" method="POST" id="form" onsubmit="return checkForm(this);">
+                {%csrf_token%}
+
+
+                <div class="divition">
+                  <br>
+                  {%for message in messages%}
+                  <p>{{message}}</p>
+                  {%endfor%}
+              </div>
+
+              
+
+              <!-- <div class="divition">
+                {%for message in messages%}
+                <p>{{message}}</p>
+                {%endfor%}
+            </div> -->
+
+
+              <div class="user-details">
+                <div class="input-box">
+                  <span class="details">Name/பெயர்* :</span>
+                  <input type="text" name="name" pattern="^[a-zA-z\s\.\@\_\-+]+$" placeholder="Eg : User Name.A" required>
+                </div>
+                <div class="input-box">
+                  <span class="details">Father/Mother Name/அம்மா/அப்பா :</span>
+                  <input type="text" name="mfname" pattern="^[a-zA-z\s\.\@\_\-+]+$" placeholder="Eg : User Name.A">
+                </div>
+                <div class="input-box">
+                  <span class="details">E-mail ID/இ-மெயில் முகவரி* : </span>
+                  <input type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="Eg : user@gmail.com (gmail only)" required>
+                </div>
+                <div class="input-box">
+                  <span class="details">Mobile No/கைபேசி எண்(What'sapp)* :</span>
+                  <input type="text" name="number" pattern="[0-9]{10}" placeholder="Eg : 9876543210 (10)" required>
+                </div>
+                <div class="input-box">
+                  <span class="details">Aadhar number/ஆதார் எண்* :</span>
+                  <input type="text" name="aadhar" pattern="[0-9]{12}" placeholder="Eg : 987654321012 (12)" required>
+                </div>
+                <div class="input-box">
+                  <span class="details">Date of Birth/பிறந்த தேதி :</span>
+                  <input type="date" name="dob">
+                </div>
+                <!-- <div class="input-box">
+                  <span class="details">District/மாவட்டம் :</span>
+                  <input type="text" name="district" placeholder="Confirm your password" required>
+                </div> -->
+                <div class="input-box">
+                  <span class="details">District/மாவட்டம்* :</span>
+                  <select name="district" id="district">
+                  <option>Select Option :</option>
+                  <option value="Tenkasi">Tenkasi</option>
+                  <option value="Tirunelveli">Tirunelveli</option>
+                  <option value="Thoothukudi">Thoothukudi</option>
+                  <option value="Virudhunagar">Virudhunagar</option>
+                  <option value="Madurai">Madurai</option>
+
+                  <option value="Ariyalur">Ariyalur</option>
+                  <option value="Chengalpattu">Chengalpattu</option>
+                  <option value="Chennai">Chennai</option>
+                  <option value="Coimbatore">Coimbatore</option>
+
+                  <option value="Cuddalore">Cuddalore</option>
+                  <option value="Dharmapuri">Dharmapuri</option>
+                  <option value="Dindigul">Dindigul</option>
+                  <option value="Erode">Erode</option>
+
+                  <option value="Kallakurichi">Kallakurichi</option>
+                  <option value="Kancheepuram">Kancheepuram</option>
+                  <option value="Karur">Karur</option>
+                  <option value="Krishnagiri">Krishnagiri</option>
+
+                  
+                  <option value="Mayiladuthurai">Mayiladuthurai</option>
+                  <option value="Nagapattinam">Nagapattinam</option>
+                  <option value="Nagercoil">Nagercoil</option>
+
+                  <option value="Namakkal">Namakkal</option>
+                  <option value="Perambalur">Perambalur</option>
+                  <option value="Pudukkottai">Pudukkottai</option>
+                  <option value="Ramanathapuram">Ramanathapuram</option>
+
+                  <option value="Ranipet">Ranipet</option>
+                  <option value="Salem">Salem</option>
+                  <option value="Sivagangai">Sivagangai</option>
+                  
+
+                  <option value="Thanjavur">Thanjavur</option>
+                  <option value="Theni">Theni</option>
+                  <option value="Thiruvallur">Thiruvallur</option>
+                  <option value="Thiruvarur">Thiruvarur</option>
+
+                  
+                  <option value="Tiruchirappalli">Tiruchirappalli</option>
+                  
+                  <option value="Tirupathur">Tirupathur</option>
+
+                  <option value="Tiruppur">Tiruppur</option>
+                  <option value="Tiruvannamalai">Tiruvannamalai</option>
+                  <option value="The Nilgiris">The Nilgiris</option>
+                  <option value="Vellore">Vellore</option>
+
+                  <option value="Viluppuram">Viluppuram</option>
+                  
+                  <option value="Others">Others</option>
+                </select>
+                </div>
+                <div class="input-box">
+                  <span class="details">Community/சமூகம்* :</span>
+                  <select name="community" id="community">
+                    <option>Select Option :</option>
+                    <option value="SC">SC</option>
+                    <option value="ST">ST</option>
+                    <option value="MBC">MBC</option>
+                    <option value="DC">DC</option>
+                    <option value="BC">BC</option>
+                    <option value="BCM">BCM</option>
+                    <option value="Others">Others</option>
+                  </select>
+                </div>
+              </div>
+              
+              <div class="gender-details">
+                <input type="radio" name="gender" id="dot-1" value="Male">
+                <input type="radio" name="gender" id="dot-2" value="Female">
+                <input type="radio" name="gender" id="dot-3" value="Transgender">
+                <span class="gender-title">Gender* :</span>
+                <div class="category">
+                  <label for="dot-1">
+                  <span class="dot one"></span>
+                  <span class="gender" >Male/ஆண்</span>
+                </label>
+                <label for="dot-2">
+                  <span class="dot two"></span>
+                  <span class="gender" >Female/பெண்</span>
+                </label>
+                <label for="dot-3">
+                  <span class="dot three"></span>
+                  <span class="gender" >Others/மூன்றாம் பாலினம்</span>
+                  </label>
+                </div>
+              </div>
+             
+             
+          <div class="work-details">
+            <input type="radio" name="employee" id="dot-4" value="Yes">
+            <input type="radio" name="employee" id="dot-5" value="No">
+            
+            <span class="gender-title">Private Job Portal-Already Applied?/Private Job Portal-இல் பதிவு செய்துள்ளீர்களா?* : </span>
+            <div class="category">
+              <label for="dot-4">
+              <span class="dot four"></span>
+              <span class="gender" >Yes/ஆம்</span>
+            </label>
+            <label for="dot-5">
+              <span class="dot five"></span>
+              <span class="gender" >No/இல்லை</span>
+            </label>
+            </div>
+          </div>
+          
+      
+          <div class="d3">
+            <input type="radio" name="yy" id="dot-6" value="Yes">
+            <input type="radio" name="yy" id="dot-7" value="No">
+            
+            <span class="gender-title">Handicapped?/மாற்றுத்திறனாளியா?* : </span>
+            <div class="category">
+              <label for="dot-6">
+              <span class="dot six"></span>
+              <span class="gender" >Yes/ஆம்</span>
+            </label>
+            <label for="dot-7">
+              <span class="dot seven"></span>
+              <span class="gender" >No/இல்லை</span>
+            </label>
+            <div class="dot-6">
+              <span class="dot six">Section/பிரிவு * :</span>
+              <select name="section" id="section">
+              <option>Select Option :</option>
+              <option value="Ortho">Ortho</option>
+              <option value="MR">MR</option>
+              <option value="HI">HI</option>
+              
+              <option value="VI">VI</option>
+            </select>
+            </div>
+            </div>
+            
+          </div>
+      
+          <fieldset>
+            <legend>Educational Qualification</legend>
+          <div class="edu">
+              <label for="qualification">Educational Qualification/கல்வித்தகுதி :</label><br><br>
+            
+            <select name="qualification" id="ugqualification" >
+              <option>Select Option</option>
+              <option value="Below - 10th">Below - 10th</option>
+              <option value="10th">10th</option>
+              <option value="12th">12th</option>
+              <option value="Diploma">Diploma</option>
+              <option value="ITI">ITI</option>
+              <option value="UG - Arts and Science">UG - Arts and Science</option>
+              <option value="UG - Engineering">UG - Engineering</option>
+              <option value="PG - Arts and Science">PG - Arts and Science</option>
+              <option value="PG - Engineering">PG - Engineering</option>
+              <option value="MCA">MCA</option>
+              <option value="MBA">MBA</option>
+              <option value="Others">Others</option>
+             </select>
+             <br><br>
+           
+             
+            <label for="year">Year of Passing/தேர்ச்சி பெற்ற ஆண்டு :</label><br><br>
+            <select name="year" id="year">
+              <option value="2023">Select</option>
+              <option value="2000">2000</option>
+              <option value="2001">2001</option>
+              <option value="2002">2002</option>
+              <option value="2003">2003</option>
+              <option value="2004">2004</option>
+              <option value="2005">2005</option>
+              <option value="2006">2006</option>
+              <option value="2007">2007</option>
+              <option value="2008">2008</option>
+              <option value="2009">2009</option>
+              <option value="2010">2010</option>
+              <option value="2011">2011</option>
+              <option value="2012">2012</option>
+              <option value="2013">2013</option>
+              <option value="2014">2014</option>
+              <option value="2015">2015</option>
+              <option value="2016">2016</option>
+              <option value="2017">2017</option>
+              <option value="2018">2018</option>
+              <option value="2019">2019</option>
+              <option value="2020">2020</option>
+              <option value="2021">2021</option>
+              <option value="2022">2022</option>
+              <option value="2023">2023</option>
+              <option value="2024">2024</option>
+              <option value="Others">Others</option>
+             </select><br><br>
+            
+             
+            <label for="Percentage">Percentage/தேர்ச்சி சதவீதம் :</label><br><br>
+            <input type="text" id="ugPercentage" placeholder="Percentage" pattern="[0-9\.{1}]{2,}" name="percentage"><br><br>
+          </div>
+        </fieldset>
+      
+        
+      
+      <!-- <div class="input-box">
+        <span class="details">Date :</span>
+        <input type="date" name="date" id="date" class="date">
+    </div> -->
+        
+        <div class="button">
+          <button type="submit" class="button1" name="myButton"><span class="button__text">Register</span></button>
+                <!-- <input type="submit" id="submit" value="Register"> -->
+              </div>
+              <div class="button">
+                <input type="reset" value="Reset">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        
+        var checkForm = function(form) { 
+          /* Submit button was clicked */
+          //
+          // check form input values
+          //
+          form.myButton.disabled = true;
+          
+          return true;
+        };
+
+        
+      </script>
+
+</body>
+</html>

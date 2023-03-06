@@ -1,0 +1,85 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="{%static '/media/govt.ico'%}" type="image/ico" sizes="16x16">
+    <title>Select Data</title>
+    <style>
+        *{
+            text-decoration: none;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            
+        }
+        body{
+            background-image: linear-gradient(rgb(254, 232, 232),rgb(217, 217, 255));
+            background-repeat:no-repeat;
+        }
+        h1{
+            text-align: center;
+        }
+        div{
+            color: red;
+            text-align: center;
+        }
+        input{
+            margin-top: 10px;
+            margin-left:45%;
+            padding: 8px;
+            border: 2px solid black;
+            border-radius: 10px;
+            color: black;
+
+        }
+        .sub{
+            margin-top: 20px;
+            margin-left:45%;
+            padding: 8px 67px;
+            border: 2px solid black;
+            border-radius: 10px;
+            color: black;
+            background-image: linear-gradient(rgb(252, 237, 239),rgb(168, 168, 168));
+        }
+        a{
+            margin-top: 10px;
+            margin-left:45%;
+            padding: 8px 67px;
+            border: 2px solid black;
+            border-radius: 10px;
+            color: black;
+            background-image: linear-gradient(rgb(252, 237, 239),rgb(168, 168, 168));
+        }
+        input:hover{
+            cursor: pointer;
+            opacity: 0.7;
+        }
+         a:hover{
+            cursor: pointer;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <h1>Select Deleted Data</h1>
+
+    <form action="/s63564el6546ec655t351data6325" method="POST">
+        {%csrf_token%}
+        <div class="divition">
+            {%for message in messages%}
+            <p>{{message}}</p>
+            {%endfor%}
+        </div>
+
+        <input type="text" name="id" id="id">
+        <input type="submit" class="sub" value="Select">
+        <br><br>
+        
+    </form>
+    <br>
+<br><br><br><br><br><br><br><br><br><br>
+
+<br><br><br><br><br><br><br>
+<br><br><br><br>
+</body>
+</html>

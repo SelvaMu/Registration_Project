@@ -1,0 +1,216 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '/css/style.css'%}">
+    <link rel="icon" href="{%static '/media/govt.ico'%}" type="image/ico" sizes="16x16">
+    <title>Present Here!</title>
+    <style>
+      
+      h1{
+        text-align: center;
+        color: #460b34;
+        background-color: #86657c;
+    }
+      #search{
+        margin-left: 1%;
+        padding: 7px 30px;
+        background-color: #86657c;
+        border-radius: 5px;
+        border: 2px solid gray;
+    }
+    #searchi{
+        margin-left: 25%;
+        width: 20%;
+        margin-bottom: 2%;
+        width: 40%;
+        padding: 8px;
+        border-radius: 5px;
+        border: solid 2px gray;
+    }
+    #search:hover{
+        background-color: #460b34;
+        color: white;
+        cursor: pointer;
+    }
+
+    
+    
+    </style>
+</head>
+<body>
+    
+    
+  <h1>Present Here!</h1>
+
+
+        <form action="/pr56465es52351ent55146h512ere" method="POST">
+            {%csrf_token%}
+            
+
+            <h4>Current Student Count : {{t}}</h4>
+<input type="search" id="searchi" name="searchi" placeholder="Search here...." required><span><input type="submit" value="search" id="search"></span>
+
+            <div class="divition">
+              {%for message in messages%}
+              <p>{{message}}</p>
+              {%endfor%}
+          </div>
+
+            
+        
+       
+<hr><hr>
+    
+        
+          
+            {%if searched%}
+{%for i in det%}
+<table class="table">
+  <thead>
+      <tr>
+       <th>Data</th>
+       <th>Details</th>
+      </tr>
+  </thead>
+  <tbody>
+        <tr>
+              <td data-label="S.No">ID</td>
+              <td data-label="Name">{{i.Employer_ID}}</td>
+        </tr>
+
+        <tr>
+              <td data-label="S.No">Name</td>
+              <td data-label="Name">{{i.Student_Name}}</td>
+        </tr>
+
+        <tr>
+              <td data-label="S.No">E-mail ID</td>
+              <td data-label="Name">{{i.Email_ID}}</td>
+        </tr>
+
+        <tr>
+              <td data-label="S.No">Mobile Number</td>
+              <td data-label="Name">{{i.Mobile_Number}}</td>
+        </tr>
+
+        <tr>
+          <td data-label="S.No">Date Of Birth</td>
+          <td data-label="Name">{{i.Date_Of_Birth}}</td>
+        </tr>
+
+       <tr>
+         <td data-label="S.No">District</td>
+         <td data-label="Name">{{i.District}}</td>
+       </tr>
+
+      
+
+      <tr>
+        <td data-label="S.No">Private Job Portal-Already Applied?</td>
+        <td data-label="Name">{{i.Private_Job_Portal}}</td>
+      </tr>
+
+      <tr>
+       <td data-label="S.No">Educational qualification</td>
+       <td data-label="Name">{{i.Highest_Qualification}}</td>
+     </tr>
+     
+     <tr>
+       <td data-label="S.No">Year of Passing</td>
+       <td data-label="Name">{{i.Qualified_Year}}</td>
+     </tr>
+     <tr>
+       <td data-label="S.No">Percentage</td>
+       <td data-label="Name">{{i.Percentage}}</td>
+     </tr>
+  </tbody>
+</table>
+{%endfor%}
+
+{%else%}
+{% for i in all %}
+<table class="table">
+  <thead>
+      <tr>
+       <th>Data</th>
+       <th>Details</th>
+      </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td data-label="S.No">ID</td>
+      <td data-label="Name">{{i.Employer_ID}}</td>
+</tr>
+
+<tr>
+      <td data-label="S.No">Name</td>
+      <td data-label="Name">{{i.Student_Name}}</td>
+</tr>
+
+<tr>
+      <td data-label="S.No">E-mail ID</td>
+      <td data-label="Name">{{i.Email_ID}}</td>
+</tr>
+
+<tr>
+      <td data-label="S.No">Mobile Number</td>
+      <td data-label="Name">{{i.Mobile_Number}}</td>
+</tr>
+
+<tr>
+  <td data-label="S.No">Date Of Birth</td>
+  <td data-label="Name">{{i.Date_Of_Birth}}</td>
+</tr>
+
+<tr>
+ <td data-label="S.No">District</td>
+ <td data-label="Name">{{i.District}}</td>
+</tr>
+
+
+
+<tr>
+<td data-label="S.No">Private Job Portal-Already Applied?</td>
+<td data-label="Name">{{i.Private_Job_Portal}}</td>
+</tr>
+
+<tr>
+<td data-label="S.No">Educational qualification</td>
+<td data-label="Name">{{i.Highest_Qualification}}</td>
+</tr>
+
+<tr>
+<td data-label="S.No">Year of Passing</td>
+<td data-label="Name">{{i.Qualified_Year}}</td>
+</tr>
+<tr>
+<td data-label="S.No">Percentage</td>
+<td data-label="Name">{{i.Percentage}}</td>
+</tr>
+  </tbody>
+</table>
+    
+       
+       <br>
+       <hr>
+
+       
+       {%endfor%}
+     
+      
+      
+       {%endif%}
+     
+      
+      
+    
+      <br>
+       
+       
+    </form>
+</body>
+</html>

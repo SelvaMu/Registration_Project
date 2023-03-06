@@ -1,0 +1,102 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="{%static '/media/govt.ico'%}" type="image/ico" sizes="16x16">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Reset</title>
+    <style>
+        *{
+            text-decoration: none;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            
+        }
+        body{
+            background-image: linear-gradient(rgb(254, 232, 232),rgb(217, 217, 255));
+            background-repeat:no-repeat;
+            
+        }
+        h1{
+            text-align: center;
+        }
+        div{
+            color: red;
+            text-align: center;
+        }
+        h4,a{
+            margin-left:45%;
+          
+        }
+        .all{
+            padding: 7px 20px;
+            border: 2px solid black;
+            border-radius: 10px;
+            color: black;
+            background-image: linear-gradient(rgb(252, 237, 239),rgb(168, 168, 168));
+
+        }
+        .select{
+            
+            padding: 7px 20px;
+            border: 2px solid black;
+            border-radius: 10px;
+            color: black;
+            background-image: linear-gradient(rgb(252, 237, 239),rgb(168, 168, 168));
+        }
+        .employer{
+            
+            padding: 7px 20px;
+            border: 2px solid black;
+            border-radius: 10px;
+            color: black;
+            background-image: linear-gradient(rgb(252, 237, 239),rgb(168, 168, 168));
+        }
+        .back{
+            padding: 7px 20px;
+            border: 2px solid black;
+            border-radius: 10px;
+            color: black;
+            background-image: linear-gradient(rgb(252, 237, 239),rgb(168, 168, 168));   
+        }
+        a:hover{
+            cursor: pointer;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <h1>Data Reset</h1>
+
+    <form action="/da536494tar3213e963584s6e654t" method="POST">
+        {%csrf_token%}
+
+        <div class="divition">
+            {%for message in messages%}
+            <p>{{message}}</p>
+            {%endfor%}
+        </div>
+
+    <h4>Download Registered Student Data</h4>
+    <a href="/e6546mp213loi23132onda21ta631" class="all">Download</a>
+
+    <h4>Present Student Data</h4>
+    <a href="/pr56e63s632en5265352d6553h531" class="select">Download</a>
+
+    <h4>Employers Data</h4>
+    <a href="/e6351m515p542l546o7542y651465" class="employer">Download</a>
+
+    <h4>Selected Student Data</h4>
+    <a href="/se632le520c5t5ed65a351t55a521" class="employer">Download</a>
+    <br><br><br>
+    
+    <a href="/s98ea7r6c6651251363h516556465" class="back">Back</a>
+
+</form><br>
+<br><br><br><br><br><br><br><br><br><br>
+
+<br><br><br><br><br><br><br>
+
+</body>
+</html>
